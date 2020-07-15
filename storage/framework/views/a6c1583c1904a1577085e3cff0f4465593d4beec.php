@@ -18,7 +18,7 @@
       </script>
       <!-- Meta tags -->
       <!--stylesheets-->
-      <link href="<?php echo e(asset('css/style.css')); ?>" rel='stylesheet' type='text/css' media="all">
+      <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
       <!--//style sheet end here-->
       <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
    </head>
@@ -26,18 +26,45 @@
       <div class="mid-class">
          <div class="art-right-w3ls">
             <h2>Sign In and Sign Up</h2>
-            <form action="#" method="post">
-               <div class="main">
+             <form method="POST" action="<?php echo e(route('login')); ?>">
+                        <?php echo csrf_field(); ?>               <div class="main">
                   <div class="form-left-to-w3l">
-                     <input type="text" name="name" placeholder="Username" required="">
-                  </div>
+              
+                  <input id="email" type="email" class="form-control <?php if ($errors->has('email')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('email'); ?> is-invalid <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>" name="email" value="<?php echo e(old('email')); ?>" required autocomplete="email" autofocus>
+
+                                <?php if ($errors->has('email')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('email'); ?>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong><?php echo e($message); ?></strong>
+                                    </span>
+                                <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>    </div>
                   <div class="form-left-to-w3l ">
-                     <input type="password" name="password" placeholder="Password" required="">
-                     <div class="clear"></div>
+                <input id="password" type="password" class="form-control <?php if ($errors->has('password')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('password'); ?> is-invalid <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>" name="password" required autocomplete="current-password">
+
+                                <?php if ($errors->has('password')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('password'); ?>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong><?php echo e($message); ?></strong>
+                                    </span>
+                                <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>                     <div class="clear"></div>
                   </div>
                </div>
                <div class="left-side-forget">
-                  <input type="checkbox" class="checked">
+                  <input class="form-check-input" type="checkbox" name="remember" id="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
                   <span class="remenber-me">Remember me </span>
                </div>
                <div class="right-side-forget">
@@ -60,24 +87,20 @@
                   <!--login form-->
                   <div class="letter-w3ls">
                      <form action="#" method="post">
-                        <div class="form-left-to-w3l">
-                           <input type="text" name="name" placeholder="Username" required="">
-                        </div>
-                        <div class="form-left-to-w3l">
-                           <input type="text" name="name" placeholder="Phone" required="">
-                        </div>
+                      
+                        
                         <div class="form-left-to-w3l">
                            <input type="email" name="email" placeholder="Email" required="">
                         </div>
                         <div class="form-left-to-w3l">
                            <input type="password" name="password" placeholder="Password" required="">
                         </div>
-                        <div class="form-left-to-w3l margin-zero">
-                           <input type="password" name="password" placeholder="Confirm Password" required="">
-                        </div>
+                      
                         <div class="btnn">
-                           <button type="submit">Sign Up</button>
-                           <br>
+                          <button type="submit" class="btn btn-primary">
+                                    <?php echo e(__('Login')); ?>
+
+                                </button>      <br>
                         </div>
                      </form>
                      <div class="clear"></div>
