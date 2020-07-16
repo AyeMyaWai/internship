@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('forgetpw','TestController@forgetpw')->name('forgetpw');
+
 Route::get('/testarray', 'HomeController@array');
 
 Route::get('/', function () {
@@ -22,3 +24,5 @@ Route::middleware('can:isAdmin')->prefix('admin')->group(function () {
     Route::get('/', 'AdminController@array');
 });
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('logout','Auth\LoginController@logout')->name('logout');
+

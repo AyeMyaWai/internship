@@ -12,10 +12,11 @@ class AdminController extends Controller
      * @return void
      */
     public function __construct()
-    {  if (Gate::allows('isAdmin', auth()->user())) {
+    {  
+        if (Gate::allows('isAdmin', auth()->user())) {
        echo "Admin";
         }
-    }
+       }
 
     /**
      * Show the application dashboard.

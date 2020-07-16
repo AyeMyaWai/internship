@@ -68,8 +68,12 @@ endif; ?>                     <div class="clear"></div>
                   <span class="remenber-me">Remember me </span>
                </div>
                <div class="right-side-forget">
-                  <a href="#" class="for">Forgot password...?</a>
-               </div>
+               <?php if(Route::has('password.request')): ?>
+                                    <a class="btn btn-link" href="<?php echo e(route('password.request')); ?>">
+                                        <?php echo e(__('Forgot Your Password?')); ?>
+
+                                    </a>
+                                <?php endif; ?>   </div>
                <div class="clear"></div>
                <div class="btnn">
                   <button type="submit">Sign In</button>
@@ -92,27 +96,8 @@ endif; ?>                     <div class="clear"></div>
                         <div class="form-left-to-w3l">
                            <input type="email" name="email" placeholder="Email" required="">
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Password')); ?></label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control <?php if ($errors->has('password')) :
-if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('password'); ?> is-invalid <?php unset($message);
-if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name="password" required autocomplete="current-password">
-
-                                <?php if ($errors->has('password')) :
-if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('password'); ?>
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong><?php echo e($message); ?></strong>
-                                    </span>
-                                <?php unset($message);
-if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>
-                            </div>
+                        <div class="form-left-to-w3l">
+                           <input type="password" name="password" placeholder="Password" required="">
                         </div>
                       
                         <div class="btnn">
@@ -121,12 +106,24 @@ endif; ?>
 
                                 </button>      <br>
                         </div>
-                    </form>
-                </div>
+                     </form>
+                     <div class="clear"></div>
+                  </div>
+                  <!--//login form-->
+                  <a class="close" href="#">&times;</a>
+               </div>
             </div>
-        </div>
-    </div>
-</div>
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\internship\resources\views/auth/login.blade.php ENDPATH**/ ?>
+            <!-- //popup -->
+         </div>
+         <div class="art-left-w3ls" id="animate-area">
+          
+         </div>
+      </div>
+      <footer class="bottem-wthree-footer">
+         <p>
+            © 2019 Gaze Sign Up & Login Form. All Rights Reserved | Design by
+            <a href="http://www.W3Layouts.com" target="_blank">W3Layouts</a>
+         </p>
+      </footer>
+   </body>
+</html><?php /**PATH C:\xampp\htdocs\internship\resources\views/auth/login.blade.php ENDPATH**/ ?>

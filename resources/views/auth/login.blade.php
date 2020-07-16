@@ -52,8 +52,11 @@
                   <span class="remenber-me">Remember me </span>
                </div>
                <div class="right-side-forget">
-                  <a href="#" class="for">Forgot password...?</a>
-               </div>
+               @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif   </div>
                <div class="clear"></div>
                <div class="btnn">
                   <button type="submit">Sign In</button>
