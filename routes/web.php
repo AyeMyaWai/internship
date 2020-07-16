@@ -17,5 +17,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::middleware('can:isAdmin')->prefix('admin')->group(function () {
+    // Mention all admin routes
+    Route::get('/', 'AdminController@array');
+});
 Route::get('/home', 'HomeController@index')->name('home');

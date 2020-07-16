@@ -111,10 +111,8 @@ endif; ?>                     <div class="clear"></div>
             </div>
             <!-- //popup -->
          </div>
-         <div class="art-left-w3ls">
-            <h1 class="header-w3ls">
-               Gaze sign up & login Form
-            </h1>
+         <div class="art-left-w3ls" id="animate-area">
+          
          </div>
       </div>
       <footer class="bottem-wthree-footer">

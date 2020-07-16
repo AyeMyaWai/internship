@@ -133,7 +133,38 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+@keyframes animatedBackground {
+	from {
+	  background-position: 0 0;
+	}
+	to {
+	  background-position: 100% 0;
+	}
+  }
+  #animate-area {
+	width: 600px;
+	height: 200px;
+	margin-left:-2000px;
+	background-image: url('/images/password.jpg');
+	background-position: 0px 0px;
+	background-repeat: repeat-x;
+	animation: animatedBackground 100s linear infinite;
+  }
+  /* #animate-area { 
+	animation: MoveUpDown 1s linear infinite;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+  }
+  
+  @keyframes MoveUpDown {
+	0%, 100% {
+	  bottom: 0;
+	}
+	50% {
+	  bottom: 100px;
+	}
+  }*/
 
 /* start editing from here */
 

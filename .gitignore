@@ -12,5 +12,5 @@ npm-debug.log
 yarn-error.log
 /storage/framework
 /storage/logs
-storage/framework/sessions/zLywLmvC68M2MmBAS5TLFLjqVt1Mpk6t0o47G35D
-storage/framework/views/318e183a88222001521bd2cabcd18e0b48c63907.php
+storage/framework/sessions
+storage/framework/views
