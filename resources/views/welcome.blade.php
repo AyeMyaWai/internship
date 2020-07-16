@@ -26,7 +26,9 @@
       <div class="mid-class">
          <div class="art-right-w3ls">
             <h2>Sign In and Sign Up</h2>
-            <form action="#" method="post">
+            <form method="POST" action="{{ route('login') }}">
+                        @csrf
+
                <div class="main">
                   <div class="form-left-to-w3l">
                      <input type="text" name="name" placeholder="Username" required="">
@@ -59,7 +61,8 @@
                <div class="popup">
                   <!--login form-->
                   <div class="letter-w3ls">
-                     <form action="#" method="post">
+                  <form method="POST" action="{{ route('login') }}">
+                        @csrf
                         <div class="form-left-to-w3l">
                            <input type="text" name="name" placeholder="Username" required="">
                         </div>
@@ -67,10 +70,10 @@
                            <input type="text" name="name" placeholder="Phone" required="">
                         </div>
                         <div class="form-left-to-w3l">
-                           <input type="email" name="email" placeholder="Email" required="">
+                           <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         </div>
                         <div class="form-left-to-w3l">
-                           <input type="password" name="password" placeholder="Password" required="">
+                           <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                         </div>
                         <div class="form-left-to-w3l margin-zero">
                            <input type="password" name="password" placeholder="Confirm Password" required="">
